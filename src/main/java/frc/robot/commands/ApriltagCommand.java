@@ -7,8 +7,11 @@ package frc.robot.commands;
 import frc.robot.subsystems.ApriltagSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
+import org.photonvision.SimVisionSystem;
 
+import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Transform3d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -49,41 +52,28 @@ public class ApriltagCommand extends CommandBase {
 
   // Best Target
 
-  /*int targetID = apriltag.getTargetID();
- double poseAmbiguity = apriltag.getPoseAmbiguity();
-  boolean best_hasTarget = apriltag.hasTargets();
-  List<PhotonTrackedTarget> best_targets = apriltag.getApriltagTargeList("False");
-  double best_yaw = apriltag.getTargetYaw("False");
-  double best_pitch = apriltag.getTargetPitch("False");
-  double best_area = apriltag.getTargetArea("False");
-  List<TargetCorner> best_corners = apriltag.getTargetCorner("False");
-  Transform3d best_targetToCamera = apriltag.getCameraToTarget("False");
+ 
+   double camDiagFOV = 170.0; // degrees - assume wide-angle camera
+   double camPitch = 10; // degrees
+   double camHeightOffGround = 0.2; // meters
+   double maxLEDRange = 20; // meters
+   int camResolutionWidth = 640; // pixels
+   int camResolutionHeight = 480; // pixels
+   double minTargetArea = 10; // square pixels
 
-  // double camDiagFOV = 170.0; // degrees - assume wide-angle camera
-  // double camPitch = 10; // degrees
-  // double camHeightOffGround = 0.2; // meters
-  // double maxLEDRange = 20; // meters
-  // int camResolutionWidth = 640; // pixels
-  // int camResolutionHeight = 480; // pixels
-  // double minTargetArea = 10; // square pixels
+   SimVisionSystem simVision =
+       new SimVisionSystem(
+               "AprilTag",
+               camDiagFOV,
+               new Transform3d(
+                       new Translation3d(0, 0, camHeightOffGround), new Rotation3d(0, camPitch, 0)),
+               maxLEDRange,
+               camResolutionWidth,
+               camResolutionHeight,
+               minTargetArea
+       );
 
-  // SimVisionSystem simVision =
-  //     new SimVisionSystem(
-  //             "AprilTag",
-  //             camDiagFOV,
-  //             new Transform3d(
-  //                     new Translation3d(0, 0, camHeightOffGround), new Rotation3d(0, camPitch, 0)),
-  //             maxLEDRange,
-  //             camResolutionWidth,
-  //             camResolutionHeight,
-  //             minTargetArea
-  //     );
-
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
+  
   public ApriltagCommand(ApriltagSubsystem apriltag, DriveSubsystem drive, int targetID) {
     this.apriltag = apriltag;
     this.drive =drive;
@@ -132,7 +122,7 @@ public class ApriltagCommand extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    
+
   }
 
 
