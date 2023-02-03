@@ -17,8 +17,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ApriltagSubsystem extends SubsystemBase {
-
-  PhotonCamera pv_cam = new PhotonCamera("photonvision");
+  
+  NetworkTableInstance table;
+  PhotonCamera pv_cam = new PhotonCamera("webcam");
   PhotonPipelineResult pv_result = new PhotonPipelineResult();
 
   PhotonPipelineResult result = pv_cam.getLatestResult();
@@ -43,11 +44,8 @@ public class ApriltagSubsystem extends SubsystemBase {
 
 
   // Change this to match the name of your camera
-  NetworkTableInstance table;
-  PhotonCamera webcam = new PhotonCamera(table, "Webcam");
 
-  // Query the latest result from PhotonVision
-  PhotonPipelineResult webcam_result = webcam.getLatestResult();
+
 
 
   @Override

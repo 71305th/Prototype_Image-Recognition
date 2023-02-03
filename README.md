@@ -1,5 +1,24 @@
 # Apriltag
 
+# v.2.1 ApriltagCommand & ApriltagSubsystem 
+
+## ApriltagCommand
+using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
+ > <font style="color: blue">**return definition of the getBestCameraToTarget() **</font>
+        > (x,y,z) = (forward, left , up)
+
+## ApriltagSubsystem
+method added:
+- snapshot()
+- getCameratoTaget()
+- getTargetID()
+- getYaw()
+- getSkew()
+- getPitch()
+- hasTarget()
+- getPoseAmbiguity()
+    
+
 # v1.2.3 ~ v1.2.4 Integration
 
 Commiter : **Moyu**
@@ -193,21 +212,4 @@ Commiter : **Moyu**
     - JoystickConstants
         - All of the `Button`, `Trigger`, and `Axis`
 
-# 2023.2.3 ApriltagCommand & ApriltagSubsystem 
 
-## ApriltagCommand
-using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
- > <font style="color: blue">**return definition of the getBestCameraToTarget() **</font>
-        > (x,y,z) = (forward, left , up)
-
-## ApriltagSubsystem
-method added:
-- snapshot()
-- getCameratoTaget()
-- getTargetID()
-- getYaw()
-- getSkew()
-- getPitch()
-- hasTarget()
-- getPoseAmbiguity()
-    
