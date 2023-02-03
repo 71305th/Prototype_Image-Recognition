@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.photonvision.PhotonCamera;
@@ -12,44 +11,46 @@ import org.photonvision.targeting.PhotonPipelineResult;
 import org.photonvision.targeting.PhotonTrackedTarget;
 import org.photonvision.targeting.TargetCorner;
 
+import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Transform3d;
-import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.math.geometry.Translation3d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ApriltagSubsystem extends SubsystemBase {
   
-  NetworkTableInstance table;
   PhotonCamera pv_cam = new PhotonCamera("webcam");
-  PhotonPipelineResult pv_result = new PhotonPipelineResult();
-
   PhotonPipelineResult result = pv_cam.getLatestResult();
+  boolean hasTarget = result.hasTargets();
+  List<PhotonTrackedTarget> targets = result.getTargets();
 
   //define target
-  PhotonTrackedTarget target = result.getBestTarget();
+  PhotonTrackedTarget target;
 
   //define information of the target
-  boolean hasTarget = result.hasTargets();
-  double yaw = target.getYaw();
-  double pitch = target.getPitch();
-  double area = target.getArea();
-  double skew = target.getSkew();
-  int targetID = target.getFiducialId();
-  double poseAmbiguity = target.getPoseAmbiguity();
 
-  Transform3d bestCameraToTarget = target.getBestCameraToTarget();
-  Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
-  List<TargetCorner> corners = target.getDetectedCorners();
+  double yaw ;
+  double pitch;
+  double area;
+  double skew;
+  int targetID;
+  double poseAmbiguity;
+
+  Transform3d bestCameraToTarget;
+  Transform3d alternateCameraToTarget;
+  List<TargetCorner> corners;
 
   public ApriltagSubsystem() {}
-
-
-  // Change this to match the name of your camera
-
 
 
 
   @Override
   public void periodic() {
+    result = pv_cam.getLatestResult();
+    hasTarget = result.hasTargets();
+
+    if (hasTarget){
+    target = result.getBestTarget();
     yaw = target.getYaw();
     pitch = target.getPitch();
     area = target.getArea();
@@ -60,7 +61,16 @@ public class ApriltagSubsystem extends SubsystemBase {
     bestCameraToTarget = target.getBestCameraToTarget();
     corners = target.getDetectedCorners();
 
-    getCameratoTaget();
+    getCameratoTarget();
+    }
+
+    SmartDashboard.putNumber("targetID", targetID);
+    SmartDashboard.putNumber("yaw", yaw);
+    SmartDashboard.putNumber("skew", skew);
+    SmartDashboard.putNumber("area", area); 
+    SmartDashboard.putNumber("pitch", pitch);
+    SmartDashboard.putNumber("poseAmbiguity", poseAmbiguity);
+       
   }
 
   @Override
@@ -81,13 +91,15 @@ public class ApriltagSubsystem extends SubsystemBase {
    * y -> left
    * z -> up
    */
-  public Transform3d getCameratoTaget(){
-    return bestCameraToTarget;
+  public Transform3d getCameratoTarget(){
+    Transform3d mCameratoTaget = hasTarget == true ? target.getBestCameraToTarget() : new Transform3d(new Translation3d(0,0,0), new Rotation3d(0,0,0));
+    return mCameratoTaget;
   }
 
 
   public int getTargetID(){
-    return targetID;
+    int mTargetID = hasTarget == true ? target.getFiducialId():0;
+    return mTargetID;
   }
 
   /**
@@ -95,7 +107,8 @@ public class ApriltagSubsystem extends SubsystemBase {
    * degrees
    */
   public double getYaw(){
-    return yaw;
+    double myaw = hasTarget == true ? target.getYaw():0;
+    return myaw;
   }
 
     /**
@@ -103,7 +116,8 @@ public class ApriltagSubsystem extends SubsystemBase {
    * degrees
    */
   public double getSkew(){
-    return skew;
+    double mskew = hasTarget == true ? target.getSkew():0;
+    return mskew;
   }
 
     /**
@@ -111,15 +125,17 @@ public class ApriltagSubsystem extends SubsystemBase {
    * degrees
    */
   public double getPitch(){
-    return pitch;
+    double mpitch = hasTarget == true ? target.getPitch():0;
+    return mpitch;
   }
 
   public boolean hasTarget(){
-    return hasTarget;
+    return hasTarget;    
   }
 
   public double getPoseAmbiguity(){
-    return poseAmbiguity;
+    double mposeAmbiguity = hasTarget == true ? target.getPoseAmbiguity():0;
+    return mposeAmbiguity;
   }
 
 

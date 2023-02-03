@@ -23,6 +23,14 @@ public class ApriltagCommand extends CommandBase {
   private ApriltagSubsystem apriltag;
   private final int targetID;
 
+  public ApriltagCommand(ApriltagSubsystem apriltag, DriveSubsystem drive, int targetID) {
+    this.apriltag = apriltag;
+    this.drive =drive;
+    this.targetID = targetID;
+    
+    addRequirements(apriltag, drive);
+  }
+
   //PID constants
   double KPf = 0.1;
   double KIf = 0.1;
@@ -48,7 +56,7 @@ public class ApriltagCommand extends CommandBase {
   boolean hasTarget = apriltag.hasTarget();
   double yaw = apriltag.getYaw();
   double pitch = apriltag.getPitch();
-  Transform3d targetToCamera = apriltag.getCameratoTaget();
+  Transform3d targetToCamera = apriltag.getCameratoTarget();
 
   // Best Target
 
@@ -74,13 +82,7 @@ public class ApriltagCommand extends CommandBase {
        );
 
   
-  public ApriltagCommand(ApriltagSubsystem apriltag, DriveSubsystem drive, int targetID) {
-    this.apriltag = apriltag;
-    this.drive =drive;
-    this.targetID = targetID;
-    
-    addRequirements(apriltag, drive);
-  }
+  
 
   @Override
   public void initialize() {}
@@ -91,8 +93,8 @@ public class ApriltagCommand extends CommandBase {
 
     if(apriltag.getTargetID() == targetID){
 
-      forward = apriltag.getCameratoTaget().getX();
-      turn = apriltag.getCameratoTaget().getY();
+      forward = apriltag.getCameratoTarget().getX();
+      turn = apriltag.getCameratoTarget().getY();
       time = Timer.getFPGATimestamp();
   
       deltaT = lastTime - time;
