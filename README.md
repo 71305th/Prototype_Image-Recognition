@@ -1,6 +1,7 @@
 # Apriltag
 
 # v.2.1 ApriltagCommand & ApriltagSubsystem 
+Commiter : **AngelShih**
 
 ## ApriltagCommand
 using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
