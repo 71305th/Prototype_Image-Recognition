@@ -4,15 +4,14 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ApriltagSubsystem;
+
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Commands;
 
 public final class Autos {
   /** Example static factory for an autonomous command. */
-  public static CommandBase exampleAuto(ApriltagSubsystem apriltagSub, DriveSubsystem driveSub) {
-    return Commands.sequence(new ApriltagCommand(apriltagSub, driveSub, 0));
+  public static CommandBase exampleAuto( DriveSubsystem driveSub) {
+    return null;
   }
 
   private Autos() {

@@ -3,10 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
-
-
-import frc.robot.commands.ApriltagCommand;
-import frc.robot.subsystems.ApriltagSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -20,10 +16,8 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
  
-private ApriltagSubsystem apriltag = new ApriltagSubsystem();
 private DriveSubsystem drive = new DriveSubsystem();
 
-private ApriltagCommand apriltagCommand = new ApriltagCommand(apriltag, drive, 0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -57,6 +51,6 @@ private ApriltagCommand apriltagCommand = new ApriltagCommand(apriltag, drive, 0
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return apriltagCommand;
+      return null;
   }
 }
