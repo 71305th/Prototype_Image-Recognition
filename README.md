@@ -1,5 +1,14 @@
 # Apriltag
 
+# v2.1.2 Adjust Github Settings
+
+Commiter : **Moyu**
+
+## Features 
+
+1. Repo Name : `Apriltag` -> `Imagine`
+2. Branch Name : `ap1` -> `apriltag`
+
 # v2.1.1 Adjust & Optimize Code
 
 # v2.1 ApriltagCommand & ApriltagSubsystem 
