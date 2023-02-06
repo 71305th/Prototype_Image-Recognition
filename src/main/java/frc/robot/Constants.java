@@ -56,4 +56,20 @@ public final class Constants {
         public static final int btn_LS = 9;  
         public static final int btn_RS = 10;
     }
+
+    /**
+     * measurements of the cone area in meters:
+     * 
+     * <ul>
+     * <li>cone1-->lower one 
+     * <li>cone2-->upper one
+     */
+    public static class Cones{
+      
+        public static final double conesHight_2 = 1.06600625;
+        public static final double conesHight_1 = 0.568325;
+        public static final double distenceBetweenCones = 0.4318;
+        public static final double robotDriveHight = 0.20;
+        public static final double armOneLength = 0.80;
+      }
 }
