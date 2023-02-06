@@ -30,7 +30,6 @@ method added:
 - getPitch()
 - hasTarget()
 - getPoseAmbiguity()
-    
 
 # v1.2.3 ~ v1.2.4 Integration
 

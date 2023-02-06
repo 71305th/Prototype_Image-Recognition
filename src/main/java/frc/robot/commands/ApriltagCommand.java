@@ -25,7 +25,7 @@ public class ApriltagCommand extends CommandBase {
 
   public ApriltagCommand(ApriltagSubsystem apriltag, DriveSubsystem drive, int targetID) {
     this.apriltag = apriltag;
-    this.drive =drive;
+    this.drive = drive;
     this.targetID = targetID;
     
     addRequirements(apriltag, drive);
@@ -58,25 +58,25 @@ public class ApriltagCommand extends CommandBase {
   double pitch = apriltag.getPitch();
   Transform3d targetToCamera = apriltag.getCameratoTarget();
  
-  // Camera Constants
-  double camDiagFOV = 170.0; // degrees - assume wide-angle camera
-  double camPitch = 10; // degrees
-  double camHeightOffGround = 0.2; // meters
-  double maxLEDRange = 20; // meters
-  int camResolutionWidth = 640; // pixels
-  int camResolutionHeight = 480; // pixels
-  double minTargetArea = 10; // square pixels
+  // // Camera Constants
+  // double camDiagFOV = 170.0; // degrees - assume wide-angle camera
+  // double camPitch = 10; // degrees
+  // double camHeightOffGround = 0.2; // meters
+  // double maxLEDRange = 20; // meters
+  // int camResolutionWidth = 640; // pixels
+  // int camResolutionHeight = 480; // pixels
+  // double minTargetArea = 10; // square pixels
 
-   SimVisionSystem simVision =
-    new SimVisionSystem(
-      "AprilTag",
-      camDiagFOV,
-      new Transform3d( new Translation3d(0, 0, camHeightOffGround), new Rotation3d(0, camPitch, 0)),
-      maxLEDRange,
-      camResolutionWidth,
-      camResolutionHeight,
-      minTargetArea
-    );
+  //  SimVisionSystem simVision =
+  //   new SimVisionSystem(
+  //     "AprilTag",
+  //     camDiagFOV,
+  //     new Transform3d( new Translation3d(0, 0, camHeightOffGround), new Rotation3d(0, camPitch, 0)),
+  //     maxLEDRange,
+  //     camResolutionWidth,
+  //     camResolutionHeight,
+  //     minTargetArea
+  //   );
 
   @Override
   public void initialize() {}
@@ -93,8 +93,8 @@ public class ApriltagCommand extends CommandBase {
       deltaForward = forward / deltaT;
       deltaTurn = turn / deltaT;
   
-      if( forward < 1 ) sum_Forward += forward;
-      if( turn < 1 ) sum_Turn += turn;
+      if( forward > 1 ) sum_Forward += forward;
+      if( turn > 1 ) sum_Turn += turn;
   
       output_Forward = kPf * forward + kIf * sum_Forward + kDf * deltaForward;
       output_Turn = kPt * turn + kDt * sum_Turn + kDt * deltaTurn;

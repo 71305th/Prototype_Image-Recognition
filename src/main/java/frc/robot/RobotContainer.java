@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
  
-private ApriltagSubsystem apriltag = new ApriltagSubsystem();
-private DriveSubsystem drive = new DriveSubsystem();
+private ApriltagSubsystem m_apriltagSub = new ApriltagSubsystem();
+private DriveSubsystem m_driveSub = new DriveSubsystem();
 
-private ApriltagCommand apriltagCommand = new ApriltagCommand(apriltag, drive, 0);
+private ApriltagCommand m_apriltagCmd = new ApriltagCommand(m_apriltagSub, m_driveSub, 0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -57,6 +57,6 @@ private ApriltagCommand apriltagCommand = new ApriltagCommand(apriltag, drive, 0
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return apriltagCommand;
+    return m_apriltagCmd;
   }
 }

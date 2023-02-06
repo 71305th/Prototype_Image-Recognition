@@ -11,8 +11,10 @@ import edu.wpi.first.wpilibj2.command.Commands;
 
 public final class Autos {
   /** Example static factory for an autonomous command. */
-  public static CommandBase exampleAuto(ApriltagSubsystem apriltagSub, DriveSubsystem driveSub) {
-    return Commands.sequence(new ApriltagCommand(apriltagSub, driveSub, 0));
+  public static CommandBase Auto(ApriltagSubsystem apriltagSub, DriveSubsystem driveSub) {
+    return Commands.sequence(
+      new ApriltagCommand(apriltagSub, driveSub, 0)
+    );
   }
 
   private Autos() {
