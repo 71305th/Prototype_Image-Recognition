@@ -4,6 +4,12 @@
 
 package frc.robot;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.wpi.first.math.geometry.Transform2d;
+import edu.wpi.first.math.geometry.Translation2d;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -55,5 +61,20 @@ public final class Constants {
         public static final int btn_RB = 6;
         public static final int btn_LS = 9;  
         public static final int btn_RS = 10;
+        
+        
+    }
+
+    public static final class field {
+        public static Map<String, Translation2d> fieldmMap = new HashMap<>(){{
+            put("tagID_1", null);
+            put("tagID_2", null);
+            put("tagID_3", null);
+            put("tagID_4", null);
+            put("tagID_5", null);
+            put("tagID_6", null);
+            put("tagID_7", null);
+            put("tagID_8", null);
+        }};
     }
 }
