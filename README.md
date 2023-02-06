@@ -4,7 +4,7 @@
 
 # v1.1 Limelight Subsystem Initialize & CheckCones Command 
 
-## Festures
+## Features
 
 ### Checkcones Command
 
