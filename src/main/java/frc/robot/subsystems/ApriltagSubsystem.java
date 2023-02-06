@@ -62,12 +62,12 @@ public class ApriltagSubsystem extends SubsystemBase {
     getCameratoTarget();
     }
 
-    SmartDashboard.putNumber("targetID", targetID);
-    SmartDashboard.putNumber("yaw", yaw);
-    SmartDashboard.putNumber("skew", skew);
-    SmartDashboard.putNumber("area", area); 
-    SmartDashboard.putNumber("pitch", pitch);
-    SmartDashboard.putNumber("poseAmbiguity", poseAmbiguity);
+    // SmartDashboard.putNumber("targetID", targetID);
+    // SmartDashboard.putNumber("yaw", yaw);
+    // SmartDashboard.putNumber("skew", skew);
+    // SmartDashboard.putNumber("area", area); 
+    // SmartDashboard.putNumber("pitch", pitch);
+    // SmartDashboard.putNumber("poseAmbiguity", poseAmbiguity);
        
   }
 
