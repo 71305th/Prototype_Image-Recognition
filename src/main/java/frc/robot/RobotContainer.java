@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
  
-private DriveSubsystem drive = new DriveSubsystem();
+private DriveSubsystem m_drive = new DriveSubsystem();
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
