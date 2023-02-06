@@ -42,8 +42,6 @@ public class ApriltagSubsystem extends SubsystemBase {
 
   public ApriltagSubsystem() {}
 
-
-
   @Override
   public void periodic() {
     result = pv_cam.getLatestResult();
@@ -78,55 +76,45 @@ public class ApriltagSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
-
   public void snapshot(){
     pv_cam.takeInputSnapshot();
     pv_cam.takeOutputSnapshot();
   }
 
   /**
-   * 
    * @return
-   * x -> front
-   * y -> left
-   * z -> up
-   */
+   * x -> front</p>
+   * y -> left</p>
+   * z -> up</p>
+   **/
   public Transform3d getCameratoTarget(){
-    Transform3d mCameratoTaget = hasTarget == true ? target.getBestCameraToTarget() : new Transform3d(new Translation3d(0,0,0), new Rotation3d(0,0,0));
-    return mCameratoTaget;
+    return hasTarget == true ? target.getBestCameraToTarget() : new Transform3d( new Translation3d(0,0,0), new Rotation3d(0,0,0) );
   }
 
 
   public int getTargetID(){
-    int mTargetID = hasTarget == true ? target.getFiducialId():0;
-    return mTargetID;
+    return hasTarget == true ? target.getFiducialId() : 0;
   }
 
   /**
-   * @return
-   * degrees
-   */
+   * @return degrees
+   **/
   public double getYaw(){
-    double myaw = hasTarget == true ? target.getYaw():0;
-    return myaw;
+    return hasTarget == true ? target.getYaw() : 0;
   }
 
-    /**
-   * @return
-   * degrees
-   */
+  /**
+   * @return degrees
+   **/
   public double getSkew(){
-    double mskew = hasTarget == true ? target.getSkew():0;
-    return mskew;
+    return hasTarget == true ? target.getSkew() : 0;
   }
 
-    /**
-   * @return
-   * degrees
-   */
+  /**
+   * @return degrees
+   **/
   public double getPitch(){
-    double mpitch = hasTarget == true ? target.getPitch():0;
-    return mpitch;
+    return hasTarget == true ? target.getPitch() : 0;
   }
 
   public boolean hasTarget(){
@@ -134,9 +122,6 @@ public class ApriltagSubsystem extends SubsystemBase {
   }
 
   public double getPoseAmbiguity(){
-    double mposeAmbiguity = hasTarget == true ? target.getPoseAmbiguity():0;
-    return mposeAmbiguity;
+    return hasTarget == true ? target.getPoseAmbiguity() : 0;
   }
-
-
 }
