@@ -1,5 +1,23 @@
 # Apriltag
 
+# v2.3 Change some settings
+
+Commoier : **Moyu**
+
+## Feratures
+
+Change 
+
+    ```java
+    PhotonCamera pv_cam = new PhotonCamera("webcam");
+    ```
+
+to
+
+    ```java
+    PhotonCamera pv_cam = new PhotonCamera("WEB_CAM");
+    ```
+
 # v2.2 Clean Code
 
 Commiter : **Moyu**

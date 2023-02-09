@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ApriltagSubsystem extends SubsystemBase {
   
-  PhotonCamera pv_cam = new PhotonCamera("webcam");
+  PhotonCamera pv_cam = new PhotonCamera("WEB_CAM");
   PhotonPipelineResult result = pv_cam.getLatestResult();
   boolean hasTarget = result.hasTargets();
   List<PhotonTrackedTarget> targets = result.getTargets();
@@ -48,18 +48,18 @@ public class ApriltagSubsystem extends SubsystemBase {
     hasTarget = result.hasTargets();
 
     if (hasTarget){
-    target = result.getBestTarget();
-    yaw = target.getYaw();
-    pitch = target.getPitch();
-    area = target.getArea();
-    skew = target.getSkew();
-    targetID = target.getFiducialId();
-    poseAmbiguity = target.getPoseAmbiguity();
+      target = result.getBestTarget();
+      yaw = target.getYaw();
+      pitch = target.getPitch();
+      area = target.getArea();
+      skew = target.getSkew();
+      targetID = target.getFiducialId();
+      poseAmbiguity = target.getPoseAmbiguity();
 
-    bestCameraToTarget = target.getBestCameraToTarget();
-    corners = target.getDetectedCorners();
+      bestCameraToTarget = target.getBestCameraToTarget();
+      corners = target.getDetectedCorners();
 
-    getCameratoTarget();
+      getCameratoTarget();
     }
 
     SmartDashboard.putNumber("targetID", targetID);
