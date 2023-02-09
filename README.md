@@ -8,15 +8,15 @@ Commoier : **Moyu**
 
 Change 
 
-    ```java
-    PhotonCamera pv_cam = new PhotonCamera("webcam");
-    ```
+```java
+PhotonCamera pv_cam = new PhotonCamera("webcam");
+```
 
 to
 
-    ```java
-    PhotonCamera pv_cam = new PhotonCamera("WEB_CAM");
-    ```
+```java
+PhotonCamera pv_cam = new PhotonCamera("WEB_CAM");
+```
 
 # v2.2 Clean Code
 
