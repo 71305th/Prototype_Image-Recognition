@@ -20,16 +20,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class ApriltagSubsystem extends SubsystemBase {
   
   PhotonCamera pv_cam = new PhotonCamera("WEB_CAM");
-  PhotonPipelineResult result = pv_cam.getLatestResult();
-  boolean hasTarget = result.hasTargets();
-  List<PhotonTrackedTarget> targets = result.getTargets();
+  PhotonPipelineResult result;
+  boolean hasTarget;
+  List<PhotonTrackedTarget> targets;
 
   //define target
   PhotonTrackedTarget target;
 
   //define information of the target
 
-  double yaw ;
+  double yaw;
   double pitch;
   double area;
   double skew;
@@ -62,12 +62,12 @@ public class ApriltagSubsystem extends SubsystemBase {
       getCameratoTarget();
     }
 
-    SmartDashboard.putNumber("targetID", targetID);
-    SmartDashboard.putNumber("yaw", yaw);
-    SmartDashboard.putNumber("skew", skew);
-    SmartDashboard.putNumber("area", area); 
-    SmartDashboard.putNumber("pitch", pitch);
-    SmartDashboard.putNumber("poseAmbiguity", poseAmbiguity);
+    // SmartDashboard.putNumber("targetID", targetID);
+    // SmartDashboard.putNumber("yaw", yaw);
+    // SmartDashboard.putNumber("skew", skew);
+    // SmartDashboard.putNumber("area", area); 
+    // SmartDashboard.putNumber("pitch", pitch);
+    // SmartDashboard.putNumber("poseAmbiguity", poseAmbiguity);
   }
 
   @Override

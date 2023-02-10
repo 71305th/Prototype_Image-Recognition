@@ -20,31 +20,26 @@ import edu.wpi.first.math.geometry.Translation2d;
  */
 public final class Constants {
 
-    /**
-     * This class contains : 
-     * 
-     * <ul>
-     *  <li> Four Direction MotorID
-     * </ul>
-     **/
     public static final class DriveConstants {
-        public static final int RFmotorID = 4;
-        public static final int LFmotorID = 2;
+        // Motors
+        public static final int RFmotorID = 1;
+        public static final int LFmotorID = 4;
         public static final int RRmotorID = 3;
-        public static final int LRmotorID = 5;
+        public static final int LRmotorID = 2;
+
+        // Encoder
+        public static final int kLeftEncoderPort = 3;
+        public static final int kRightEncoderPort = 3;
+        public static final int kEncoderCPR = 4096;
+        public static final double kWheelDiameterMeters = 0.097;
+        public static final double kWheelCircumference = kWheelDiameterMeters * Math.PI;
+        public static final double kGearRatio = 0.12;
+        public static final double kDistancePerPulse = kGearRatio * kWheelCircumference / kEncoderCPR * 100;
+
+        // Camera
+        public static final int kCamera1Port = 0;
     }
 
-    /**
-     * This class contains : 
-     * 
-     * <ul>
-     *  <li> joystick_1_Port
-     *  <li> left and rightStick_X, Y
-     *  <li> trigger_L, R
-     *  <li> btn_A, B, X, Y
-     *  <li> btn_LB, RB, LS, RS
-     * </ul>
-     **/
     public static final class JoystickConstants {
         public static final int joystick_1_Port = 0;
         public static final int leftStick_X = 0;
@@ -61,8 +56,16 @@ public final class Constants {
         public static final int btn_RB = 6;
         public static final int btn_LS = 9;  
         public static final int btn_RS = 10;
-        
-        
+    }
+
+    public static final class PIDConstants {
+        // PID constants
+        public static final double kP_foward = 0.3;
+        public static final double kI_foward = 0;
+        public static final double kD_foward = 0;
+        public static final double kP_turn = 0.3;
+        public static final double kI_turn = 0;
+        public static final double kD_turn = 0;
     }
 
     public static final class field {

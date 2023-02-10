@@ -1,10 +1,22 @@
 # Apriltag
 
+# v3.1 Details
+
+Commiter : **Moyu**
+
+## Features
+
+1. 
+
+# v3.0 Finish Apriltag PID
+
+Commiter : **Moyu**
+
 # v2.3 Change some settings
 
 Commoier : **Moyu**
 
-## Feratures
+## Features
 
 Change 
 
@@ -37,12 +49,16 @@ Commiter : **Moyu**
 
 Commiter : **AngelShih**
 
-## ApriltagCommand
+## Features
+
+### ApriltagCommand
+
 using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
  > <font style="color: blue">**return definition of the getBestCameraToTarget() **</font>
         > (x,y,z) = (forward, left , up)
 
-## ApriltagSubsystem
+### ApriltagSubsystem
+
 method added:
 - snapshot()
 - getCameratoTaget()

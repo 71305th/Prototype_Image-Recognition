@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants.PIDConstants;
 import frc.robot.subsystems.ApriltagSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -13,6 +14,7 @@ import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class ApriltagCommand extends CommandBase {
@@ -31,32 +33,22 @@ public class ApriltagCommand extends CommandBase {
     addRequirements(apriltag, drive);
   }
 
-  //PID constants
-  double kPf = 0.1;
-  double kIf = 0.1;
-  double kDf = 0.1;
-  double kPt = 0.1;
-  double kIt = 0.1;
-  double kDt = 0.1;
-
-  //variables
-  double forward = 0;
-  double turn = 0;
-  double time = 0;  
-  double lastTime = 0;
-  double deltaT = 0;
-  double deltaForward = 0;
-  double deltaTurn = 0;
-  double sum_Forward = 0;
-  double sum_Turn = 0;
-  double output_Forward = 0;
-  double output_Turn = 0;
+  // Variables
+  double forward;
+  double turn;
+  double time;  
+  double lastTime;
+  double deltaT;
+  double deltaForward;
+  double deltaTurn;
+  double sum_Forward;
+  double sum_Turn;
+  double output_Forward;
+  double output_Turn;
 
   // Normal Target
-  boolean hasTarget = apriltag.hasTarget();
-  double yaw = apriltag.getYaw();
-  double pitch = apriltag.getPitch();
-  Transform3d targetToCamera = apriltag.getCameratoTarget();
+  boolean hasTarget;
+  Transform3d targetToCamera;
  
   // // Camera Constants
   // double camDiagFOV = 170.0; // degrees - assume wide-angle camera
@@ -79,31 +71,45 @@ public class ApriltagCommand extends CommandBase {
   //   );
 
   @Override
-  public void initialize() {}
+  public void initialize() {
+    drive.resetEncoder();
+  }
 
   @Override
   public void execute() {
+    hasTarget = apriltag.hasTarget();
+    targetToCamera = apriltag.getCameratoTarget();
+    forward = 0;
+    turn = 0;
 
     if( apriltag.getTargetID() == targetID ){
-      forward = apriltag.getCameratoTarget().getX();
-      turn = apriltag.getCameratoTarget().getY();
+      forward = targetToCamera.getX() - 0.36;
+      turn = -targetToCamera.getY();
       time = Timer.getFPGATimestamp();
   
       deltaT = lastTime - time;
       deltaForward = forward / deltaT;
       deltaTurn = turn / deltaT;
   
-      if( forward > 1 ) sum_Forward += forward;
-      if( turn > 1 ) sum_Turn += turn;
+      if( forward < 1 ) sum_Forward += forward;
+      if( turn < 0.3 ) sum_Turn += turn;
   
-      output_Forward = kPf * forward + kIf * sum_Forward + kDf * deltaForward;
-      output_Turn = kPt * turn + kDt * sum_Turn + kDt * deltaTurn;
+      // output_Forward = PIDConstants.kP_foward * forward + PIDConstants.kI_foward * sum_Forward + PIDConstants.kD_foward * deltaForward;
+      output_Turn = -1 * (PIDConstants.kP_turn * turn + PIDConstants.kI_turn * sum_Turn + PIDConstants.kD_turn * deltaTurn);
+
+      // SmartDashboard.putNumber("X", forward);
+      // SmartDashboard.putNumber("Y", turn);
+      // SmartDashboard.putNumber("output_forward", output_Forward);
+      // SmartDashboard.putNumber("output_turn", output_Turn);
   
       drive.arcadeDrive(output_Forward, output_Turn);
     }else{
-      drive.arcadeDrive(0, 0.2);
+      drive.arcadeDrive(0, 0.3);
     }
 
+    // SmartDashboard.putBoolean("HasTarget", hasTarget);
+    // SmartDashboard.putNumber("LeftDitance", drive.getTwoRelativeEncoderData().getFirst());
+    // SmartDashboard.putNumber("LeftDitance", drive.getTwoRelativeEncoderData().getSecond());
     lastTime = time;
   }
 
