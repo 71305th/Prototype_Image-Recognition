@@ -94,7 +94,7 @@ public class ApriltagCommand extends CommandBase {
       if( forward < 1 ) sum_Forward += forward;
       if( turn < 0.3 ) sum_Turn += turn;
   
-      // output_Forward = PIDConstants.kP_foward * forward + PIDConstants.kI_foward * sum_Forward + PIDConstants.kD_foward * deltaForward;
+      output_Forward = PIDConstants.kP_foward * forward + PIDConstants.kI_foward * sum_Forward + PIDConstants.kD_foward * deltaForward;
       output_Turn = -1 * (PIDConstants.kP_turn * turn + PIDConstants.kI_turn * sum_Turn + PIDConstants.kD_turn * deltaTurn);
 
       // SmartDashboard.putNumber("X", forward);

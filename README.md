@@ -1,12 +1,57 @@
 # Apriltag
 
-# v3.1 Details
+# v3.1 Adjust & New Function
 
 Commiter : **Moyu**
 
 ## Features
 
-1. 
+1. Set setpoint to 36 cm ( In ApriltagCommand -> Excute )
+
+    - Code : 
+        ```java
+            forward = targetToCamera.getX() - 0.36;
+        ```
+
+2. New Function
+
+    1. `Pair<Double, Double> getTwoRelativeEncoderData()`
+
+        **RETURN** The data of encoder
+
+        - Code : 
+            ```java
+                /**
+                 * @return first -> leftPos
+                *      <li>second -> rightPos
+                */
+                public Pair<Double, Double> getTwoRelativeEncoderData(){
+                    double DPP = DriveConstants.kDistancePerPulse;
+                    return new Pair<>(leftEncoder.getPosition() * DPP, rightEncoder.getPosition() * DPP);
+                }
+            ```
+        - The way to get data :
+            - If you want the data of left encoder :
+                ```java
+                    drive.getTwoRelativeEncoderData().getFirst();
+                ```
+            - If you want the data of right encoder :
+                ```java
+                    drive.getTwoRelativeEncoderData().getSecond();
+                ```
+
+    2. `void resetEncoder()`
+
+3. Change turn speed to 0.3
+
+Cuz i found if i set it to 0.2, the outpuy will not be able to move ( due to the friction )
+Here is the code : 
+
+```java
+drive.arcadeDrive(0, 0.3);
+```
+
+4. Add resetEncoder in `ApriltagCommand -> initialize()`
 
 # v3.0 Finish Apriltag PID
 
