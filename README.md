@@ -10,7 +10,7 @@ Commiter : **Moyu**
 
     - Code : 
         ```java
-            forward = targetToCamera.getX() - 0.36;
+        forward = targetToCamera.getX() - 0.36;
         ```
 
 2. New Function
@@ -21,23 +21,23 @@ Commiter : **Moyu**
 
         - Code : 
             ```java
-                /**
-                 * @return first -> leftPos
-                *      <li>second -> rightPos
-                */
-                public Pair<Double, Double> getTwoRelativeEncoderData(){
-                    double DPP = DriveConstants.kDistancePerPulse;
-                    return new Pair<>(leftEncoder.getPosition() * DPP, rightEncoder.getPosition() * DPP);
-                }
+            /**
+             * @return first -> leftPos
+            *      <li>second -> rightPos
+            */
+            public Pair<Double, Double> getTwoRelativeEncoderData(){
+                double DPP = DriveConstants.kDistancePerPulse;
+                return new Pair<>(leftEncoder.getPosition() * DPP, rightEncoder.getPosition() * DPP);
+            }
             ```
         - The way to get data :
             - If you want the data of left encoder :
                 ```java
-                    drive.getTwoRelativeEncoderData().getFirst();
+                drive.getTwoRelativeEncoderData().getFirst();
                 ```
             - If you want the data of right encoder :
                 ```java
-                    drive.getTwoRelativeEncoderData().getSecond();
+                drive.getTwoRelativeEncoderData().getSecond();
                 ```
 
     2. `void resetEncoder()`
