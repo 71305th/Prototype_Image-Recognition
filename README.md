@@ -44,12 +44,12 @@ Commiter : **Moyu**
 
 3. Change turn speed to 0.3
 
-Cuz i found if i set it to 0.2, the outpuy will not be able to move ( due to the friction )
-Here is the code : 
+    Cuz i found if i set it to 0.2, the outpuy will not be able to move ( due to the friction )
+    Here is the code :
 
-```java
-drive.arcadeDrive(0, 0.3);
-```
+    ```java
+    drive.arcadeDrive(0, 0.3);
+    ```
 
 4. Add resetEncoder in `ApriltagCommand -> initialize()`
 
@@ -98,9 +98,10 @@ Commiter : **AngelShih**
 
 ### ApriltagCommand
 
-using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
- > <font style="color: blue">**return definition of the getBestCameraToTarget() **</font>
-        > (x,y,z) = (forward, left , up)
+Using getBestCameraToTarget() to know the 3d transform of the camera to target and using PID to define the speed of the robot.
+    
+<font style="color: blue">**return definition of the getBestCameraToTarget() **</font><br>
+(x,y,z) = (forward, left , up)
 
 ### ApriltagSubsystem
 
