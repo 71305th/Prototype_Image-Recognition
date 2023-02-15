@@ -1,5 +1,12 @@
 # Apriltag
 
+# v4.1 ApriltagField command added
+
+commiter : **AngelShih**
+
+## Apriltagfield command
+A command that will return the current position in the field by using apriltag.
+
 # v3.1 Adjust & New Function
 
 Commiter : **Moyu**

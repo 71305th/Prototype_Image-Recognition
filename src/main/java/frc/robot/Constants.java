@@ -69,15 +69,19 @@ public final class Constants {
     }
 
     public static final class field {
-        public static Map<String, Translation2d> fieldmMap = new HashMap<>(){{
-            put("tagID_1", null);
-            put("tagID_2", null);
-            put("tagID_3", null);
-            put("tagID_4", null);
-            put("tagID_5", null);
-            put("tagID_6", null);
-            put("tagID_7", null);
-            put("tagID_8", null);
+       /**
+        * @param targetID
+        * @param position
+        */
+        public static Map<Integer, Translation2d> fieldmMap = new HashMap<>(){{
+            put(1, null);
+            put(2, null);
+            put(3, null);
+            put(4, null);
+            put(5, null);
+            put(6, null);
+            put(7, null);
+            put(8, null);
         }};
     }
 }
