@@ -47,5 +47,14 @@ public class CheckCones extends CommandBase {
             Cone_2Empty = true;
         }
     }
+
+    @Override
+    public void end(boolean interrupted) {
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
     
 }
