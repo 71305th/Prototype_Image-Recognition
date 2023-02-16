@@ -70,18 +70,20 @@ public final class Constants {
 
     public static final class field {
        /**
+        *  length: meters 
+        * blue aliance (0,0)
         * @param targetID
         * @param position
         */
         public static Map<Integer, Translation2d> fieldmMap = new HashMap<>(){{
-            put(1, null);
-            put(2, null);
-            put(3, null);
-            put(4, null);
-            put(5, null);
-            put(6, null);
-            put(7, null);
-            put(8, null);
+            put(1, new Translation2d(15.69085, 1.597025));
+            put(2, new Translation2d(15.69085, 4.054475));
+            put(3, new Translation2d(15.69085, 6.156325));
+            put(4, new Translation2d(16.18615, 6.7262375));
+            put(5, new Translation2d(0.3556, 6.7262375));
+            put(6, new Translation2d(0.8509, 6.156325));
+            put(7, new Translation2d(0.8509, 4.054475));
+            put(8, new Translation2d(0.8509, 1.597025));
         }};
     }
 }
