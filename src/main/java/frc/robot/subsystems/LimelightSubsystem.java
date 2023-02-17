@@ -13,10 +13,10 @@ public class LimelightSubsystem extends SubsystemBase{
     NetworkTable mTable = NetworkTableInstance.getDefault().getTable("limelight");
     NetworkTable mTable_2 = NetworkTableInstance.create().getTable("limelight");
     
-    NetworkTableEntry tx = mTable.getEntry("tx");
-    NetworkTableEntry ty = mTable.getEntry("ty");
-    NetworkTableEntry tv = mTable.getEntry("tv");
-    NetworkTableEntry ta = mTable.getEntry("ta");
+    NetworkTableEntry tx_1 = mTable.getEntry("tx");
+    NetworkTableEntry ty_1 = mTable.getEntry("ty");
+    NetworkTableEntry tv_1 = mTable.getEntry("tv");
+    NetworkTableEntry ta_1 = mTable.getEntry("ta");
 
     NetworkTableEntry tx_2 = mTable_2.getEntry("tx");
     NetworkTableEntry ty_2 = mTable_2.getEntry("ty");
@@ -29,10 +29,10 @@ public class LimelightSubsystem extends SubsystemBase{
     @Override
     public void periodic(){
 
-        mX_1 = tx.getDouble(0);
-        mY_1 = ty.getDouble(0);
-        mA_1 = ta.getDouble(0);
-        mV_1 = tv.getBoolean(false);
+        mX_1 = tx_1.getDouble(0);
+        mY_1 = ty_1.getDouble(0);
+        mA_1 = ta_1.getDouble(0);
+        mV_1 = tv_1.getBoolean(false);
 
         mX_2 = tx_2.getDouble(0);
         mY_2 = ty_2.getDouble(0);
