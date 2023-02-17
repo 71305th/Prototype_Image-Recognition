@@ -61,7 +61,7 @@ public RobotContainer() {
     , mDriveSub));
 
     new JoystickButton(driverJoystick, JoystickConstants.btn_A)
-      .onTrue( new RunCommand( () -> { mDriveSub.resetEncoder();}, mDriveSub));
+      .onTrue( new RunCommand( () -> { mDriveSub.resetEncoders();}, mDriveSub));
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // new Trigger(m_exampleSubsystem::exampleCondition)
