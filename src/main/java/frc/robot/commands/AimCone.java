@@ -13,26 +13,26 @@ public class AimCone extends CommandBase{
         addRequirements(limelight);
     }
 
-    private Translation3d result = new Translation3d(0, 0, 0);
-    private double tx;
-    private double ty;
-    private double dis;
-    private double kx = 0.1;
-    private double ky = 0.1;
-    private double kz = 0.1;
+    private Translation3d mResult = new Translation3d(0, 0, 0);
+    private double mTx;
+    private double mTy;
+    private double mDis;
+    private double kX = 0.1;
+    private double kY = 0.1;
+    private double kZ = 0.1;
 
     @Override
     public void initialize() {
-        result = new Translation3d(0,0,0);
+        mResult = new Translation3d(0,0,0);
     }
 
     @Override
     public void execute() {
-        tx = limelight.getX_2();
-        ty = limelight.getY_2();
-        dis = Math.sqrt(Math.pow(tx, 2) + Math.pow(ty, 2));
+        mTx = limelight.getX_2();
+        mTy = limelight.getY_2();
+        mDis = Math.sqrt(Math.pow(mTx, 2) + Math.pow(mTy, 2));
 
-        result = new Translation3d(kx*tx, ky*ty, kz*dis);
+        mResult = new Translation3d( kX * mTx, kY * mTy, kZ * mDis);
     }
 
     @Override
