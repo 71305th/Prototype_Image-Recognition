@@ -57,31 +57,36 @@ public class LimelightSubsystem extends SubsystemBase{
     public double getX_1(){
         return x;
     }
+    
     /**
      * Cone_1
      */
     public double getY_1(){
         return y;
     }
+
     /**
      * Cone_1
      */
     public boolean getV_1(){
         return v;
     }
+    
     /**
      * Cone_2
      */
     public double getX_2(){
         return x_2;
     }
-  /**
+
+    /**
      * Cone_2
      */
     public double getY_2(){
         return y_2;
     }
-  /**
+
+    /**
      * Cone_2
      */
     public boolean getV_2(){

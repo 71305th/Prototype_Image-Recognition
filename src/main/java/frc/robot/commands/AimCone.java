@@ -13,13 +13,13 @@ public class AimCone extends CommandBase{
         addRequirements(limelight);
     }
 
-    public Translation3d result = new Translation3d(0, 0, 0);
-    double tx;
-    double ty;
-    double dis;
-    double kx = 0.1;
-    double ky = 0.1;
-    double kz = 0.1;
+    private Translation3d result = new Translation3d(0, 0, 0);
+    private double tx;
+    private double ty;
+    private double dis;
+    private double kx = 0.1;
+    private double ky = 0.1;
+    private double kz = 0.1;
 
     @Override
     public void initialize() {
