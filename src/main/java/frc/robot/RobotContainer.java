@@ -29,10 +29,10 @@ public class RobotContainer {
 
 private final UsbCamera cam1 = CameraServer.startAutomaticCapture(DriveConstants.kCamera1Port);
  
-private ApriltagSubsystem m_apriltagSub = new ApriltagSubsystem();
-private DriveSubsystem m_driveSub = new DriveSubsystem();
+private ApriltagSubsystem mApriltagSub = new ApriltagSubsystem();
+private DriveSubsystem mDriveSub = new DriveSubsystem();
 
-private ApriltagCommand m_apriltagCmd = new ApriltagCommand(m_apriltagSub, m_driveSub, 1);
+private ApriltagCommand mApriltagCmd = new ApriltagCommand(mApriltagSub, mDriveSub, 1);
 
 // Joystick
 private final Joystick driverJoystick = new Joystick(0);
@@ -53,15 +53,15 @@ public RobotContainer() {
    * joysticks}.
    */
   private void configureBindings() {
-    m_driveSub.setDefaultCommand(new RunCommand(() -> {
-      m_driveSub.arcadeDrive(
+    mDriveSub.setDefaultCommand(new RunCommand(() -> {
+      mDriveSub.arcadeDrive(
         -driverJoystick.getRawAxis(JoystickConstants.leftStick_Y), 
         driverJoystick.getRawAxis(JoystickConstants.rightStick_X));
     }
-    , m_driveSub));
+    , mDriveSub));
 
     new JoystickButton(driverJoystick, JoystickConstants.btn_A)
-      .onTrue( new RunCommand( () -> { m_driveSub.resetEncoder();}, m_driveSub));
+      .onTrue( new RunCommand( () -> { mDriveSub.resetEncoder();}, mDriveSub));
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // new Trigger(m_exampleSubsystem::exampleCondition)
@@ -79,6 +79,6 @@ public RobotContainer() {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return m_apriltagCmd;
+    return mApriltagCmd;
   }
 }

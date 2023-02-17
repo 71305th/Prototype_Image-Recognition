@@ -7,7 +7,6 @@ package frc.robot;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.wpi.first.math.geometry.Transform2d;
 import edu.wpi.first.math.geometry.Translation2d;
 
 /**
@@ -68,7 +67,13 @@ public final class Constants {
         public static final double kD_turn = 0;
     }
 
-    public static final class field {
+    public static final class ApriltagConstants {
+        // Field
+        public static final double kx = 0.1;
+        public static final double ky = 0.1;
+    }
+
+    public static final class Field {
        /**
         *  length: meters 
         * blue aliance (0,0)

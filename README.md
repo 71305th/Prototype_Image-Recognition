@@ -1,10 +1,24 @@
 # Apriltag
 
+# v4.2 ApriltagField Program Optimization
+
+Commter : **Moyu**
+
+## Feratures
+
+1. Move ApriltagField To A Function Called `Translation2d getPosByApriltag()` in ApriltagSubsystem
+2. Change all of the variable name to m[what's this variable use to or stands for]
+    1. Example : `mTime`
+3. Add a function called `void variableSettoZero()` in README.md
+
 # v4.1 ApriltagField command added
 
-commiter : **AngelShih**
+Commiter : **AngelShih**
 
-## Apriltagfield command
+## Featuers
+
+### Apriltagfield Command
+
 A command that will return the current position in the field by using apriltag.
 
 # v3.1 Adjust & New Function

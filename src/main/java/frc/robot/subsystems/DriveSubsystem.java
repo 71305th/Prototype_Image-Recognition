@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.sensors.WPI_CANCoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -12,7 +11,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.math.Pair;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 
@@ -45,9 +43,6 @@ public class DriveSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // SmartDashboard.putNumber("LeftDitance", getTwoRelativeEncoderData().getFirst());
-    // SmartDashboard.putNumber("RightDitance", getTwoRelativeEncoderData().getSecond());
-    // This method will be called once per scheduler run
   }
 
   @Override
@@ -56,9 +51,6 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void arcadeDrive( double speed, double turn ){
-    // SmartDashboard.putNumber("Speed", speed);
-    // SmartDashboard.putNumber("Turn", turn);
-
     m_drive.arcadeDrive(speed * 0.75, -turn * 0.85);
   }
 
