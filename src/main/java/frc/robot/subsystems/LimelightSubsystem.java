@@ -39,10 +39,10 @@ public class LimelightSubsystem extends SubsystemBase{
         mA_2 = ta_2.getDouble(0);
         mV_2 = tv_2.getBoolean(false);
     
-        SmartDashboard.putNumber("tx", mX_1);
-        SmartDashboard.putNumber("ty", mY_1);
-        SmartDashboard.putNumber("ta", mA_1);
-        SmartDashboard.putBoolean("tv", mV_1);
+        SmartDashboard.putNumber("tx_1", mX_1);
+        SmartDashboard.putNumber("ty_1", mY_1);
+        SmartDashboard.putNumber("ta_1", mA_1);
+        SmartDashboard.putBoolean("tv_1", mV_1);
 
         SmartDashboard.putNumber("tx_2", mX_2);
         SmartDashboard.putNumber("ty_2", mY_2);
