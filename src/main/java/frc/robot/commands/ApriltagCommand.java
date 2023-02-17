@@ -50,7 +50,7 @@ public class ApriltagCommand extends CommandBase {
 
   @Override
   public void initialize() {
-    drive.resetEncoder();
+    drive.resetEncoders();
   }
 
   @Override

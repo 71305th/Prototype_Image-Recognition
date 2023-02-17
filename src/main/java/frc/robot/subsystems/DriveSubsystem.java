@@ -70,7 +70,7 @@ public class DriveSubsystem extends SubsystemBase {
     return new Pair<>(leftEncoder.getPosition() * DPP, rightEncoder.getPosition() * DPP); 
   }
 
-  public void resetEncoder(){
+  public void resetEncoders(){
     leftEncoder.setPosition(0);
     rightEncoder.setPosition(0);
   }
